@@ -1,0 +1,16 @@
+{# templates/products/index.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Product List</h1>
+
+    <ul>
+        {% for product in products %}
+            <li>{{ product.name }} - <a href="{{ path('your_delete_product_route', {'id': product.id}) }}">Delete</a></li>
+        {% endfor %}
+    </ul>
+
+    {# Add link to create a new product #}
+    <a href="{{ path('your_create_product_route') }}">Create New Product</a>
+{% endblock %}

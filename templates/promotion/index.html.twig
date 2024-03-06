@@ -1,0 +1,16 @@
+{# templates/promotion/index.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Promotion List</h1>
+
+    <ul>
+        {% for promotion in promotions %}
+            <li>{{ promotion.percent }}% off on {{ promotion.product.name }} - <a href="{{ path('your_promotion_delete_route', {'id': promotion.id}) }}">Delete</a></li>
+        {% endfor %}
+    </ul>
+
+    {# Add link to create a new promotion #}
+    <a href="{{ path('your_create_promotion_route') }}">Create New Promotion</a>
+{% endblock %}
